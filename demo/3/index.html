@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="TechInteriorApp">
+  <head>
+    <meta charset="utf-8">
+    <title>TechInterior - Angular Demo 3 - MVW</title>
+  </head>
+  <body ng-controller="PalestrasController">
+
+    <table>
+      <thead>
+        <th>
+          Excluir
+        </th>
+        <th>
+          Palestras
+        </th>
+        <th>
+          Palestrantes
+        </th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="palestra in palestras | orderBy: 'titulo'">
+          <td>
+            <input type="button" name="name" value="X" ng-click="removePalestra(palestra)">
+          </td>
+          <td>
+            {{ palestra.titulo }}
+          </td>
+          <td>
+            {{ palestra.palestrante }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <input type="text" ng-model="newTitulo"><br/>
+    <input type="text" ng-model="newPalestrante"><br/>
+    <input type="button" name="name" value="Add"
+      ng-click="addPalestra()">
+
+    <script type="text/javascript" src="/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

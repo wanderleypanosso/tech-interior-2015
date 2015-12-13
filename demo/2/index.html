@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>TechInterior - Angular Demo 2 - ng-repeat</title>
+  </head>
+  <body ng-init="palestras = [
+    {
+      titulo: 'Introdução ao AngularJS',
+      palestrante: 'Wanderley Panosso'
+    },
+    {
+      titulo: 'Técnicas para servir imagens responsivas',
+      palestrante: 'Maurício Maujor'
+    },
+    {
+      titulo: 'Os príncipios por trás do DevOps',
+      palestrante: 'Guilherme Silva Cardoso'
+    },
+    {
+      titulo: 'Usuários líderes e estratégias que desafiam o mercado',
+      palestrante: 'Marcio Galli'
+    },
+    {
+      titulo: 'Os incríveis 8 passos para o sucesso na carreira de desenvolvimento de Software',
+      palestrante: 'Jaydson Gomes'
+    },
+    {
+      titulo: 'WoMoz - a tecnologia feita por todos',
+      palestrante: 'Cynthia Zanoni'
+    },
+    {
+      titulo: 'De programador a professor. De código proprietário a open source.',
+      palestrante: 'Felipe Do E. Santo'
+    }
+  ]">
+
+    <table>
+      <thead>
+        <th>
+          Excluir
+        </th>
+        <th>
+          Palestras
+        </th>
+        <th>
+          Palestrantes
+        </th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="palestra in palestras | orderBy: 'titulo'">
+          <td>
+            <input type="button" name="name" value="X" ng-click="palestras.splice(palestras.indexOf(palestra), 1)">
+          </td>
+          <td>
+            {{ palestra.titulo }}
+          </td>
+          <td>
+            {{ palestra.palestrante }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <input type="text" ng-model="newTitulo"><br/>
+    <input type="text" ng-model="newPalestrante"><br/>
+    <input type="button" name="name" value="Add"
+      ng-click="
+        palestras.push({
+          titulo: newTitulo,
+          palestrante: newPalestrante
+        });
+        newTitulo = '';
+        newPalestrante = '';
+    ">
+
+    <script type="text/javascript" src="/angular.min.js"></script>
+  </body>
+</html>
